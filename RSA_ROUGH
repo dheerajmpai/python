@@ -1,0 +1,26 @@
+openssl s_client -connect the.host.name:443 | openssl x509 -pubkey -noout
+openssl s_client -connect https://www.sharelatex.com/:443 | openssl x509 -pubkey -noout
+
+https://www.sharelatex.com/
+
+openssl x509 -in foo.crt  -noout -pubkey > foo-public
+openssl rsa -noout -text  -in foo-public -pubin > foo-public-hex
+
+openssl x509 -in Google_pubkey.crt  -noout -pubkey > GPK-public
+openssl rsa -noout -text  -in GPK-public -pubin > GPK-public-hex
+
+gnutls-cli --print-cert myserver.com </dev/null 
+gnutls-cli --print-cert https://www.google.co.in </dev/null 
+
+gnutls-cli --print-cert myserver.com </dev/null 
+gnutls-cli --print-cert https://www.google.co.in </dev/null 
+
+https://www.google.co.in
+
+openssl s_client -showcerts -connect www.example.com:443 </dev/null
+openssl s_client -showcerts -connect https://www.google.co.in:443 </dev/null
+
+
+Extract Certificate
+openssl s_client -showcerts -connect example.com:443
+openssl x509 -in certificate.pem -outform der -out certificate.cer
